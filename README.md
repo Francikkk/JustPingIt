@@ -8,6 +8,8 @@ It provides a simple and effective GUI interface for network diagnostics and sto
 ![Python](https://img.shields.io/badge/python-3.11.9%2B-blue)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 
+![JustPingIt Demo GIF](./Data/img/demo.gif)
+
 ---
 
 ## 📚 Table of Contents
