@@ -100,7 +100,7 @@ Want to peek inside? Fire up any SQLite viewer or just use Python’s built-in s
 
 ## 🎨 Icons and Visuals
 
-![JustPingIt Demo](./data/img/demo.png)
+![JustPingIt Demo](data/img/demo.png)
 
 - App icon: `Data/img/JPI.ico`
 - Logo: `Data/img/logo_transparent.png`
