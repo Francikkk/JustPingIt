@@ -1,4 +1,4 @@
-# JustPingIt 🖧📶
+# JustPingIt 🖧📶 (./data/img/logo_transparent.png)
 
 JustPingIt is a Python-based network utility to ping hosts and log responses over time. 
 It provides a simple and effective GUI interface for network diagnostics and stores data in a local SQLite database.
@@ -100,7 +100,7 @@ Want to peek inside? Fire up any SQLite viewer or just use Python’s built-in s
 
 ## 🎨 Icons and Visuals
 
-![JustPingIt Demo](data/img/demo.png)
+![JustPingIt Demo](./data/img/demo.png)
 
 - App icon: `Data/img/JPI.ico`
 - Logo: `Data/img/logo_transparent.png`
