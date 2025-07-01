@@ -1,7 +1,7 @@
 
 import sqlite3
 from datetime import datetime
-from model.ping import Ping
+from .ping import Ping
 
 
 class DatabaseLogger:

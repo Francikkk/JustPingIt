@@ -1,8 +1,8 @@
 import sys
 import subprocess
 from PySide6.QtCore import QThread, Signal, QWaitCondition, QMutex
-from model.database_logger import DatabaseLogger
-from model.ping import Ping
+from .database_logger import DatabaseLogger
+from .ping import Ping
 
 # ----------------- Helper Classes -----------------
 

@@ -1,6 +1,7 @@
 # JustPingIt 🖧📶
 
-JustPingIt is a Python-based network utility to ping hosts and log responses over time. It provides a simple interface for network diagnostics and stores data in a local SQLite database.
+JustPingIt is a Python-based network utility to ping hosts and log responses over time. 
+It provides a simple and effective GUI interface for network diagnostics and stores data in a local SQLite database.
 
 ---
 
@@ -8,6 +9,7 @@ JustPingIt is a Python-based network utility to ping hosts and log responses ove
 
 - Ping any IP address or hostname
 - GUI interface for ease of use
+- Background pinging operation for long-term test
 - Logs ping responses to a local SQLite database
 - Exportable logs for network diagnostics
 - Lightweight and executable via PyInstaller
@@ -19,25 +21,27 @@ JustPingIt is a Python-based network utility to ping hosts and log responses ove
 ```
 JustPingIt/
 │
-├── main.py                  # Entry point of the application
-├── requirements.txt         # Project dependencies
+├── data/
+│   └── img/
+│       ├── logo_transparent.png
+│       └── JPI.ico            # App icon
 │
-├── model/                   # Business logic and pinging functions
-│   ├── ping.py              # Ping implementation
-│   ├── pinger.py            # Pinger engine/controller
-│   ├── path.py              # Path definitions and utils
-│   └── database_logger.py   # DB logging module
+├── src/
+│   └── JustPingIt/
+│       ├── __init__.py
+│       ├── __main__.py
+│       ├── main.py             # Entry point of the application
+│       ├── model/              # Business logic and pinging functions
+│       │   ├── ping.py
+│       │   ├── pinger.py
+│       │   ├── path.py
+│       │   └── database_logger.py
+│       └── view/               # GUI logic
+│           └── view.py
 │
-├── view/                    # GUI logic
-│   └── view.py              # GUI frontend
-│
-├── Data/
-    ├── db/
-    │   └── ping_log.db      # SQLite database file
-    └── img/
-        ├── logo_transparent.png
-        └── JPI.ico          # App icon
-
+├── requirements.txt           # Project dependencies
+├── README.md
+└── LICENSE
 ```
 
 ---
@@ -55,6 +59,7 @@ pip install -r requirements.txt
 Then launch the app:
 
 ```bash
+cd src/JustPingIt
 python main.py
 ```
 
@@ -63,12 +68,9 @@ python main.py
 
 ## 🗃️ Database
 
-SQLite DB is located at:
-```
-Data/db/ping_log.db
-```
+All ping results are logged into a handy SQLite database stored locally.
 
-You can open it with any SQLite viewer or Python’s `sqlite3`.
+Want to peek inside? Fire up any SQLite viewer or just use Python’s built-in sqlite3 module.
 
 ---
 
@@ -90,4 +92,9 @@ You can open it with any SQLite viewer or Python’s `sqlite3`.
 
 - Python & Standard Libraries
 - PyInstaller for packaging
+- PySide6 for GUI
 - Your inspiration to build useful network tools!
+
+---
+
+Got ideas? Bugs? Wanna collab? Just ping me back!
