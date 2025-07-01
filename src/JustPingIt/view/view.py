@@ -1,8 +1,9 @@
 import os
 import csv
+import markdown
 from PySide6.QtCore import Qt, QSettings, QDate
 from PySide6.QtWidgets import (
-    QWidget, QVBoxLayout, QLabel, QPushButton,
+    QWidget, QVBoxLayout, QLabel, QPushButton, QTextBrowser,
     QLineEdit, QSpinBox, QHBoxLayout, QTableWidget, QTableWidgetItem,
     QDateEdit, QComboBox, QHeaderView, QSystemTrayIcon, QMenu, QMessageBox,
     QFileDialog, QMainWindow, QDialog, QTextEdit, QSpacerItem, QSizePolicy
@@ -36,29 +37,78 @@ class AboutDialog(QDialog):
         """
         super().__init__(parent)
         self.setWindowTitle("About JustPingIt")
-        self.setMinimumSize(400, 300)
-        layout = QVBoxLayout(self)
+        self.setMinimumSize(500, 600)
 
-        text = QTextEdit()
-        text.setReadOnly(True)
+# Testo markdown (potresti anche leggere da un file README.md)
+        md_text = """
 
-        html = """
-        <h2>JustPingIt - Network Monitoring Utility</h2>
-        <p>
-        Author: Francikkk<br>
-        Version: 1.0.0<br>
-        License: MIT License<br><br>
-        GitHub: <a href="https://github.com/Francikkk/JustPingIt">https://github.com/Francikkk/JustPingIt</a><br>
-        Website: <a href="https://github.com/Francikkk">https://github.com/Francikkk</a><br>
-        Contact: <a href="mailto:gestione.franci@gmail.com">gestione.franci@gmail.com</a><br>
-        </p>
-        """
+<img src="./data/img/logo_transparent.png" width="150" />
 
-        text.setHtml(html)
-        layout.addWidget(text)
+---
+## JustPingIt V1.0.0
+JustPingIt is a Python-based network utility to ping hosts and log responses over time. 
+It provides a simple and effective GUI interface for network diagnostics and stores data in a local SQLite database.
 
+---
+
+## 🤝 Contributing
+
+Got ideas? Bugs? Wanna collab? Just ping me back!
+
+---
+
+## 📬 Contact
+
+[gestione.franci@gmail.com](mailto:gestione.franci@gmail.com)
+
+## 💻 GitHub
+
+[https://github.com/Francikkk/JustPingIt](https://github.com/Francikkk/JustPingIt)
+
+## 🚀 Features
+
+- Ping any IP address or hostname
+- GUI interface for ease of use
+- Background pinging operation for long-term test
+- Logs ping responses to a local SQLite database
+- Exportable logs for network diagnostics
+- Lightweight and executable via PyInstaller
+
+---
+
+## 🗃️ Database
+
+All ping results are logged into a handy SQLite database stored locally.
+
+Want to peek inside? Fire up any SQLite viewer or just use Python’s built-in sqlite3 module.
+
+---
+
+## 📄 License
+
+[MIT](LICENSE) — Feel free to use, modify, and distribute.
+
+---
+
+## 🙌 Acknowledgements
+
+- Python & Standard Libraries
+- PyInstaller for packaging
+- PySide6 for GUI
+- Your inspiration to build useful network tools!
+---
+"""
+
+        html = markdown.markdown(md_text)
+        text_browser = QTextBrowser()
+        text_browser.setHtml(html)
+        text_browser.setOpenExternalLinks(True)
+        
         ok_btn = QPushButton("OK")
         ok_btn.clicked.connect(self.accept)
+        
+        layout = QVBoxLayout(self)
+        layout.addWidget(text_browser)
         layout.addWidget(ok_btn)
 
 
