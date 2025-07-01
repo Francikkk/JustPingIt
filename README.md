@@ -5,6 +5,10 @@ It provides a simple and effective GUI interface for network diagnostics and sto
 
 ---
 
+![Python](https://img.shields.io/badge/python-3.11%2B-blue)
+![License: MIT](https://img.shields.io/badge/license-MIT-green)
+
+---
 ## 🚀 Features
 
 - Ping any IP address or hostname
