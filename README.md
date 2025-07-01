@@ -95,9 +95,10 @@ Want to peek inside? Fire up any SQLite viewer or just use Python’s built-in s
 
 ## 🎨 Icons and Visuals
 
+![JustPingIt Demo](./Data/img/demo.png)
+
 - App icon: `Data/img/JPI.ico`
 - Logo: `Data/img/logo_transparent.png`
-- UML Class Diagram: `UML/classes_JustPingIt.png`
 
 ---
 
@@ -116,4 +117,12 @@ Want to peek inside? Fire up any SQLite viewer or just use Python’s built-in s
 
 ---
 
+## 🤝 Contributing
+
 Got ideas? Bugs? Wanna collab? Just ping me back!
+
+---
+
+## 📬 Contact
+
+gestione.franci@gmail.com
