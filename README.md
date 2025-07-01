@@ -50,23 +50,23 @@ JustPingIt/
 │       ├── demo.gif
 │       ├── demo.png
 │       ├── logo_transparent.png
-│       └── JPI.ico            # App icon
+│       └── JPI.ico                # App icon
 │
 ├── src/
 │   └── JustPingIt/
 │       ├── __init__.py
 │       ├── __main__.py
-│       ├── main.py             # Entry point of the application
-│       ├── model/              # Business logic and pinging functions
+│       ├── main.py                 # Entry point of the application
+│       ├── model/                  # Business logic and pinging functions
 │       │   ├── ping.py
 │       │   ├── pinger.py
 │       │   ├── path.py
 │       │   └── database_logger.py
-│       └── view/               # GUI logic
+│       └── view/                   # GUI logic
 │           └── view.py
 │
 ├── .gitignore
-├── requirements.txt           # Project dependencies
+├── requirements.txt                # Project dependencies
 ├── README.md
 └── LICENSE
 ```
