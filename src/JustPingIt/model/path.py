@@ -54,7 +54,7 @@ class AppPaths:
         if hasattr(sys, '_MEIPASS'):
             return sys._MEIPASS
         else:
-            return os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+            return os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 
     def get_icon_path(self) -> str:
         """
