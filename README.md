@@ -1,4 +1,4 @@
-# JustPingIt 🖧📶 ![JustPingIt](./data/img/logo_transparent.png){style="height:1.2em; vertical-align:middle;"}
+# JustPingIt 🖧📶 ![JustPingIt](./data/img/logo_transparent.png)
 
 
 JustPingIt is a Python-based network utility to ping hosts and log responses over time. 
