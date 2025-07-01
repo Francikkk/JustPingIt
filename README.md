@@ -9,6 +9,21 @@ It provides a simple and effective GUI interface for network diagnostics and sto
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 
 ---
+
+## 📚 Table of Contents
+
+- [🚀 Features](#-features)
+- [🧱 Project Structure](#-project-structure)
+- [🛠️ How to Run](#️-how-to-run)
+- [🗃️ Database](#-database)
+- [🎨 Icons and Visuals](#-icons-and-visuals)
+- [📄 License](#-license)
+- [🙌 Acknowledgements](#-acknowledgements)
+- [🤝 Contributing](#-contributing)
+- [📬 Contact](#-contact)
+
+---
+
 ## 🚀 Features
 
 - Ping any IP address or hostname
