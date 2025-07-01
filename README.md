@@ -1,6 +1,8 @@
 
-# JustPingIt    <img src="./data/img/logo_transparent.png" width="100" />
+# JustPingIt
 
+
+<img src="./data/img/logo_transparent.png" width="150" />
 JustPingIt is a Python-based network utility to ping hosts and log responses over time. 
 It provides a simple and effective GUI interface for network diagnostics and stores data in a local SQLite database.
 
