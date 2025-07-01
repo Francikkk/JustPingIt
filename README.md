@@ -8,7 +8,7 @@ It provides a simple and effective GUI interface for network diagnostics and sto
 ![Python](https://img.shields.io/badge/python-3.11.9%2B-blue)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 
-![JustPingIt Demo GIF](./Data/img/demo.gif)
+![JustPingIt Demo GIF](./data/img/demo.gif)
 
 ---
 
@@ -44,6 +44,8 @@ JustPingIt/
 │
 ├── data/
 │   └── img/
+│       ├── demo.gif
+│       ├── demo.png
 │       ├── logo_transparent.png
 │       └── JPI.ico            # App icon
 │
@@ -60,6 +62,7 @@ JustPingIt/
 │       └── view/               # GUI logic
 │           └── view.py
 │
+├── .gitignore
 ├── requirements.txt           # Project dependencies
 ├── README.md
 └── LICENSE
@@ -97,7 +100,7 @@ Want to peek inside? Fire up any SQLite viewer or just use Python’s built-in s
 
 ## 🎨 Icons and Visuals
 
-![JustPingIt Demo](./Data/img/demo.png)
+![JustPingIt Demo](./data/img/demo.png)
 
 - App icon: `Data/img/JPI.ico`
 - Logo: `Data/img/logo_transparent.png`

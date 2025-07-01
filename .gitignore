@@ -13,7 +13,7 @@ dist/
 pip-log.txt
 
 # SQLite database
-Data/db/ping_log.db
+data/db/ping_log.db
 
 # UML and dependency
 UML_dependencies/

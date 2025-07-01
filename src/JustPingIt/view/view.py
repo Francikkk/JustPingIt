@@ -8,9 +8,9 @@ from PySide6.QtWidgets import (
     QFileDialog, QMainWindow, QDialog, QTextEdit, QSpacerItem, QSizePolicy
 )
 from PySide6.QtGui import QIcon, QAction
-from model.database_logger import DatabaseLogger
-from model.pinger import Pinger, Ping
-from model.path import AppPaths
+from JustPingIt.model.database_logger import DatabaseLogger
+from JustPingIt.model.pinger import Pinger, Ping
+from JustPingIt.model.path import AppPaths
 
 
 class AboutDialog(QDialog):

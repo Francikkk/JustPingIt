@@ -1,8 +1,10 @@
 import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from PySide6.QtWidgets import QApplication, QSystemTrayIcon, QMenu
 from PySide6.QtGui import QIcon, QAction
-from model.path import AppPaths
-from view import MainUI
+from JustPingIt.model.path import AppPaths
+from JustPingIt.view import MainUI
 
 # ----------------- App Entry -----------------
 

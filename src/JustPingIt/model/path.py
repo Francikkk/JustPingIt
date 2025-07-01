@@ -67,7 +67,7 @@ class AppPaths:
             str: The full file path to the icon file.
         """
         if self.dev_mode:
-            return os.path.join(self.base_path, "Data", "img", self.icon_filename)
+            return os.path.join(self.base_path, "data", "img", self.icon_filename)
         else:
             return os.path.join(self.base_path, self.icon_filename)
 
@@ -86,10 +86,10 @@ class AppPaths:
             OSError: If the AppData directory cannot be created.
         """
         if self.dev_mode:
-            return os.path.join(self.base_path, "Data", "db", self.db_filename)
+            return os.path.join(self.base_path, "data", "db", self.db_filename)
         else:
             app_data = QStandardPaths.writableLocation(QStandardPaths.AppDataLocation)
-            data_folder = os.path.join(app_data, "Data")
+            data_folder = os.path.join(app_data, "data")
             os.makedirs(app_data, exist_ok=True)
             os.makedirs(data_folder, exist_ok=True)
             return os.path.join(data_folder, self.db_filename)
