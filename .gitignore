@@ -18,7 +18,7 @@ data/db/ping_log.db
 # UML and dependency
 UML_dependencies/
 
-#Checklist
+# Checklist
 Checklist.txt
 
 # VS Code and IDE settings
