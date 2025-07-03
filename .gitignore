@@ -25,6 +25,9 @@ Checklist.txt
 .vscode/
 .idea/
 
+#Virtual Environment
+.venv/
+
 # OS files
 .DS_Store
 Thumbs.db
