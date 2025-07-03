@@ -15,12 +15,6 @@ pip-log.txt
 # SQLite database
 data/db/ping_log.db
 
-# UML and dependency
-UML_dependencies/
-
-# Checklist
-Checklist.txt
-
 # VS Code and IDE settings
 .vscode/
 .idea/
