@@ -1,6 +1,7 @@
 
 import sqlite3
 from datetime import datetime
+from typing import Optional
 from .ping import Ping
 
 
@@ -92,8 +93,7 @@ class DatabaseLogger:
             conn.close()
         except Exception as e:
             print(f"Error logging to database: {e}")
-
-    def fetch_logs(self, ip_filter: str ="", result_filter: str="", from_date: datetime=None, to_date: datetime=None) -> list:
+    def fetch_logs(self, ip_filter: str ="", result_filter: str="", from_date: Optional[datetime]=None, to_date: Optional[datetime]=None) -> list:
         """
         Fetch logs from the ping_logs database table with optional filtering.
         Args:

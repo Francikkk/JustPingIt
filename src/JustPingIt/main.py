@@ -45,7 +45,7 @@ def main() -> None:
     tray_menu.addAction(exit_action)
 
     tray_icon.setContextMenu(tray_menu)
-    tray_icon.activated.connect(lambda reason: main_ui.show() if reason == QSystemTrayIcon.DoubleClick else None)
+    tray_icon.activated.connect(lambda reason: main_ui.show() if reason == QSystemTrayIcon.ActivationReason.DoubleClick else None)
     tray_icon.show()
 
     main_ui.show()

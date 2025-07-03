@@ -52,7 +52,7 @@ class AppPaths:
             str: The base path of the application.
         """
         if hasattr(sys, '_MEIPASS'):
-            return sys._MEIPASS
+            return sys._MEIPASS # type: ignore
         else:
             return os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 
@@ -88,7 +88,7 @@ class AppPaths:
         if self.dev_mode:
             return os.path.join(self.base_path, "data", "db", self.db_filename)
         else:
-            app_data = QStandardPaths.writableLocation(QStandardPaths.AppDataLocation)
+            app_data = QStandardPaths.writableLocation(QStandardPaths.StandardLocation.AppDataLocation)
             data_folder = os.path.join(app_data, "data")
             os.makedirs(app_data, exist_ok=True)
             os.makedirs(data_folder, exist_ok=True)

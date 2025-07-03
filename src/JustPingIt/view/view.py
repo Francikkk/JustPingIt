@@ -1,6 +1,7 @@
 import os
 import csv
 import markdown
+from typing import Optional
 from PySide6.QtCore import Qt, QSettings, QDate
 from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QLabel, QPushButton, QTextBrowser,
@@ -140,7 +141,7 @@ class LogViewer(QWidget):
         delete_logs():
             Deletes the currently displayed logs from the database after user confirmation.
     """
-    def __init__(self, logger: DatabaseLogger, icon_path: str = None) -> None:
+    def __init__(self, logger: DatabaseLogger, icon_path: Optional[str] = None) -> None:
         """
         Initializes the Pinger window.
         Args:
@@ -149,14 +150,14 @@ class LogViewer(QWidget):
                                        it will be set as the window's icon. Defaults to None.
         """
         super().__init__()
-        self.setWindowFlag(Qt.Tool)
+        self.setWindowFlag(Qt.WindowType.Tool)
         self.logger = logger
         self.setWindowTitle("Ping Logs")
         self.setMinimumSize(600, 400)
         if icon_path and os.path.exists(icon_path):
             self.setWindowIcon(QIcon(icon_path))
 
-        self.layout = QVBoxLayout(self)
+        self.main_layout = QVBoxLayout(self)
         self.init_ui()
 
     def init_ui(self) -> None:
@@ -209,16 +210,16 @@ class LogViewer(QWidget):
         self.log_table = QTableWidget()
         self.log_table.setColumnCount(3)
         self.log_table.setHorizontalHeaderLabels(["Result", "Timestamp", "IP Address"])
-        self.log_table.setEditTriggers(QTableWidget.NoEditTriggers)
-        self.log_table.setSelectionBehavior(QTableWidget.SelectRows)
+        self.log_table.setEditTriggers(QTableWidget.EditTrigger.NoEditTriggers)
+        self.log_table.setSelectionBehavior(QTableWidget.SelectionBehavior.SelectRows)
         header = self.log_table.horizontalHeader()
         header.setStretchLastSection(True)
         for i in range(3):
-            header.setSectionResizeMode(i, QHeaderView.Stretch)
+            header.setSectionResizeMode(i, QHeaderView.ResizeMode.Stretch)
         self.log_table.verticalHeader().setVisible(False)
 
-        self.layout.addLayout(filter_layout)
-        self.layout.addWidget(self.log_table)
+        self.main_layout.addLayout(filter_layout)
+        self.main_layout.addWidget(self.log_table)
 
         # New horizontal layout for buttons at the bottom
         button_layout = QHBoxLayout()
@@ -226,12 +227,12 @@ class LogViewer(QWidget):
         self.delete_button = QPushButton("Delete")
 
         # Spacer to push buttons to the right
-        spacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        spacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
         button_layout.addItem(spacer)
         button_layout.addWidget(self.export_button)
         button_layout.addWidget(self.delete_button)
 
-        self.layout.addLayout(button_layout)
+        self.main_layout.addLayout(button_layout)
 
         self.filter_button.clicked.connect(self.load_logs)
         self.export_button.clicked.connect(self.export_logs)
@@ -258,13 +259,13 @@ class LogViewer(QWidget):
         result = "" if result == "All" else result
         from_date = self.filter_from.date().toPython()
         to_date = self.filter_to.date().toPython()
-        self.current_logs = self.logger.fetch_logs(ip_filter=ip, result_filter=result, from_date=from_date, to_date=to_date)
+        self.current_logs = self.logger.fetch_logs(ip_filter=ip, result_filter=result, from_date=from_date, to_date=to_date) # type: ignore
 
         self.log_table.setRowCount(len(self.current_logs))
         for row_idx, row in enumerate(self.current_logs):
             for col_idx, value in enumerate(row[1:]):  # Skip ID (row[0]) to avoid index in rapresentation
                 item = QTableWidgetItem(str(value))
-                item.setTextAlignment(Qt.AlignCenter)
+                item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
                 self.log_table.setItem(row_idx, col_idx, item)
 
     def export_logs(self) -> None:
@@ -322,9 +323,9 @@ class LogViewer(QWidget):
             self,
             "Confirm Deletion",
             f"Are you sure you want to delete {len(self.current_logs)} log entries?",
-            QMessageBox.Yes | QMessageBox.No
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
         )
-        if reply == QMessageBox.Yes:
+        if reply == QMessageBox.StandardButton.Yes:
             ids_to_delete = [row[0] for row in self.current_logs]
             self.logger.delete_logs_by_ids(ids_to_delete)
             self.load_logs()
@@ -424,10 +425,10 @@ class MainUI(QMainWindow):
         menu_bar = self.menuBar()
 
         # Spacer to push the Help menu to the right
-        menu_bar.setCornerWidget(QWidget(), Qt.TopLeftCorner)
+        menu_bar.setCornerWidget(QWidget(), Qt.Corner.TopLeftCorner)
         spacer = QWidget()
-        spacer.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
-        menu_bar.setCornerWidget(spacer, Qt.TopRightCorner)
+        spacer.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
+        menu_bar.setCornerWidget(spacer, Qt.Corner.TopRightCorner)
 
         help_menu = QMenu("Help", self)
         about_action = QAction("About", self)
@@ -491,8 +492,8 @@ class MainUI(QMainWindow):
           no value is stored.
 
         """
-        self.ip_input.setText(self.settings.value("ip", ""))
-        self.freq_input.setValue(int(self.settings.value("frequency", 1)))
+        self.ip_input.setText(str(self.settings.value("ip", "")))
+        self.freq_input.setValue(int(str(self.settings.value("frequency", 1))))
 
     def save_settings(self) -> None:
         """
@@ -612,8 +613,9 @@ class MainUI(QMainWindow):
         self.tray_icon.showMessage(
             "JustPingIt",
             "Application running in the system tray.",
-            QSystemTrayIcon.Information
+            QSystemTrayIcon.MessageIcon.Information
         )
+
 
     def cleanup(self) -> None:
         """
