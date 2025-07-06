@@ -35,7 +35,8 @@ target-version = "py312"
 [tool.ruff.lint]
 select = ["E", "W", "F", "B", "C90", "I", "UP", "N", "S"]
 ignore = ["E203", "B008", "B006"]
-exclude = [".venv", "__pycache__", ".mypy_cache", ".pytest_cache", "build", "dist", "pyproject.toml", ".gitignore", "README.md", "requirements.txt", "LICENSE", ".vscode", ".ruff_cache", "pyproject.toml"]
-
+exclude = ["tests", ".venv", "__pycache__", ".mypy_cache", ".pytest_cache", "build", "dist", "pyproject.toml", ".gitignore", "README.md", "requirements.txt", "LICENSE", ".vscode", ".ruff_cache", "pyproject.toml"]
+[tool.ruff.per-file-ignores]
+"tests/*.py" = ["S101"]
 
 
