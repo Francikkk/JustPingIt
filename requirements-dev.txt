@@ -1,0 +1,1 @@
+pip install black mypy isort ruff pre-commit PySide6-stubs

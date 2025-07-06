@@ -22,6 +22,15 @@ data/db/ping_log.db
 #Virtual Environment
 .venv/
 
+#env variables
+.env
+
 # OS files
 .DS_Store
 Thumbs.db
+
+# pre-commit
+.pre-commit-config.yaml
+
+# ruff
+.ruff_cache/
