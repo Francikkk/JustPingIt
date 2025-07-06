@@ -10,7 +10,7 @@ license = "MIT"
 [tool.mypy] # Mypy configuration for type checking
 ignore_missing_imports = true
 python_version = "3.12"
-strict = false
+strict = true
 disallow_untyped_defs = true        # Disallow functions without type hints
 warn_unused_ignores = true          # Catch useless `# type: ignore`
 warn_return_any = true              # Warn if returning `Any`
