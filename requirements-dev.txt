@@ -8,3 +8,5 @@ isort==6.0.1
 ruff==0.12.2
 pre-commit==4.2.0
 PySide6-stubs==6.7.3.0
+coverage==7.9.2
+pytest==8.4.1
