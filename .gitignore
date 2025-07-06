@@ -34,3 +34,9 @@ Thumbs.db
 
 # ruff
 .ruff_cache/
+
+# mypy
+.mypy_cache/
+
+# pytest
+.pytest_cache/
