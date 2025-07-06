@@ -1,1 +1,10 @@
-pip install black mypy isort ruff pre-commit PySide6-stubs
+PySide6==6.8.2.1
+PySide6_Addons==6.8.2.1
+PySide6_Essentials==6.8.2.1
+markdown==3.8.2
+black==25.1.0
+mypy==1.16.1
+isort==6.0.1
+ruff==0.12.2
+pre-commit==4.2.0
+PySide6-stubs==6.7.3.0
