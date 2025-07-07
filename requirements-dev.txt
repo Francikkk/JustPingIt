@@ -11,3 +11,4 @@ PySide6-stubs==6.7.3.0
 coverage==7.9.2
 pytest==8.4.1
 pytest-cov==6.2.1
+bandit==1.8.6
