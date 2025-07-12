@@ -12,7 +12,7 @@ ignore_missing_imports = true
 python_version = "3.12"
 strict = true
 disallow_untyped_defs = true        # Disallow functions without type hints
-warn_unused_ignores = true          # Catch useless `# type: ignore`
+warn_unused_ignores = true         # Catch useless `# type: ignore`
 warn_return_any = true              # Warn if returning `Any`
 no_implicit_optional = true         # Disallow Optional inference from default None
 show_error_codes = true             # Show Mypy error codes
@@ -35,12 +35,11 @@ target-version = "py312"
 [tool.ruff.lint]
 select = ["E", "W", "F", "B", "C90", "I", "UP", "N", "S"]
 ignore = ["E203", "B008", "B006"]
-exclude = ["tests", ".venv", "__pycache__", ".mypy_cache", ".pytest_cache", "build", "dist", "pyproject.toml", ".gitignore", "README.md", "requirements.txt", "LICENSE", ".vscode", ".ruff_cache", "pyproject.toml"]
+exclude = ["tests/", ".venv", "__pycache__", ".mypy_cache", ".pytest_cache", "build", "dist", "pyproject.toml", ".gitignore", "README.md", "requirements.txt", "LICENSE", ".vscode/*", ".ruff_cache", "pyproject.toml"]
 [tool.ruff.per-file-ignores]
 "tests/*.py" = ["S101"]
 
 [tool.bandit] # Bandit configuration for security checks
 targets = ["src/"]
+exclude_dirs = ["tests/"]
 recursive = true
-
-
