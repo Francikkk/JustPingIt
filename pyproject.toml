@@ -40,6 +40,6 @@ exclude = ["tests/", ".venv", "__pycache__", ".mypy_cache", ".pytest_cache", "bu
 "tests/*.py" = ["S101"]
 
 [tool.bandit] # Bandit configuration for security checks
-targets = [""]
+targets = ["src/"]
 exclude_dirs = ["tests/"]
 recursive = true

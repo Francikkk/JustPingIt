@@ -65,8 +65,19 @@ JustPingIt/
 │       └── view/                   # GUI logic
 │           └── view.py
 │
+├── tests/
+│       ├── __init__.py
+│       ├── test_database_logger.py
+│       ├── test_main.py
+│       ├── test_path   
+│       ├── test_ping.py
+│       ├── test_pinger.py
+│       └── test_view.py
+│ 
 ├── .gitignore
 ├── requirements.txt                # Project dependencies
+├── requirements-dev.txt            # Project dependencies for dev
+├── pyproject.toml                  # Project info and tools configuration
 ├── README.md
 └── LICENSE
 ```
