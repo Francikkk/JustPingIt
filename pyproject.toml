@@ -25,22 +25,29 @@ pretty = true # Nicer output formatting
 explicit_package_bases = true
 exclude = '''(?x)(
     ^\.venv/
+  | ^\.vscode/
   | ^build/
   | ^dist/
   | ^data/
-  | ^\.vscode/
   | ^.*__pycache__/
+  | ^\.mypy_cache/
+  | ^\.pytest_cache/
+  | ^\.ruff_cache/
   | ^.*\.pyc$
   | ^.*\.pyo$
   | ^.*\.pyd$
   | ^.*\.so$
   | ^.*\.dll$
+  | ^.*\.json$
+  | ^.*\.yaml$
   | ^.*\.toml$
   | ^\.env$
-  | ^README\.md$
-  | ^LICENSE$
-  | ^requirements(\-dev)?\.txt$
+  | ^\.gitignore$
   | ^\.pre\-commit\-config\.yaml$
+  | ^LICENSE$
+  | ^pyproject\.toml$
+  | ^README\.md$
+  | ^requirements(\-dev)?\.txt$
 )'''
 
 [tool.black] # Black configuration for code formatting
@@ -50,19 +57,21 @@ quiet = true
 exclude = '''
 /(
     \.venv
+  | \.vscode
   | build
   | dist
-  | \.vscode
+  | data
   | __pycache__
   | \.mypy_cache
   | \.pytest_cache
   | \.ruff_cache
-  | data
   | \.env
-  | README\.md
-  | LICENSE
-  | requirements(\-dev)?\.txt
+  | \.gitignore
   | \.pre\-commit\-config\.yaml
+  | LICENSE
+  | pyproject\.toml
+  | README\.md
+  | requirements(\-dev)?\.txt
 )/
 '''
 include = '''
@@ -76,20 +85,23 @@ profile = "black"
 line_length = 79
 skip = [
     ".venv",
+    ".vscode",
     "build",
     "dist",
-    ".vscode",
     "data",
     "__pycache__",
     ".mypy_cache",
     ".pytest_cache",
     ".ruff_cache",
     ".env",
-    "README.md",
+    ".gitignore",
+    ".pre-commit-config.yaml",
     "LICENSE",
+    "pyproject.toml",
+    "README.md",
     "requirements.txt",
     "requirements-dev.txt",
-    ".pre-commit-config.yaml",
+
 ]
 
 [tool.ruff] # Ruff configuration for linting and formatting
@@ -107,17 +119,19 @@ exclude = [
     "dist",
     "data",
     "tests",
-    "pyproject.toml",
     "__pycache__",
     ".ruff_cache",
     ".mypy_cache",
     ".pytest_cache",
     ".env",
-    "README.md",
+    ".gitignore",
+    ".pre-commit-config.yaml",
     "LICENSE",
+    "pyproject.toml",
+    "README.md",
     "requirements.txt",
     "requirements-dev.txt",
-    ".pre-commit-config.yaml",
+
 ]
 [tool.ruff.lint.per-file-ignores]
 "tests/*.py" = ["S101"]
@@ -130,15 +144,18 @@ exclude_dirs = [
     "build/",
     "dist/",
     "tests/",
+    "__pycache__/",
     ".mypy_cache/",
     ".pytest_cache/",
     ".ruff_cache/",
-    "__pycache__/",
     ".env",
-    "README.md",
+    ".gitignore",
+    ".pre-commit-config.yaml",
     "LICENSE",
+    "pyproject.toml",
+    "README.md",
     "requirements.txt",
     "requirements-dev.txt",
-    ".pre-commit-config.yaml",
+
 ]
 recursive = true
