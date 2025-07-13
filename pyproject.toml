@@ -3,43 +3,142 @@ name = "JustPingIt"
 description = "Network host pinger with a simple CLI interface"
 version = "1.0.0"
 readme = "README.md"
-authors = [{name = "Francesco Brunetti", email = "francesco.brunetti@gmail.com"}]
-maintainers = [{name = "Francesco Brunetti", email = "francesco.brunetti@gmail.com"}]
+authors = [
+    { name = "Francesco Brunetti", email = "francesco.brunetti@gmail.com" },
+]
+maintainers = [
+    { name = "Francesco Brunetti", email = "francesco.brunetti@gmail.com" },
+]
 license = "MIT"
 
 [tool.mypy] # Mypy configuration for type checking
-ignore_missing_imports = true
+files = ["src"]
 python_version = "3.12"
 strict = true
-disallow_untyped_defs = true        # Disallow functions without type hints
-warn_unused_ignores = true          # Catch useless `# type: ignore`
-warn_return_any = true              # Warn if returning `Any`
-no_implicit_optional = true         # Disallow Optional inference from default None
-show_error_codes = true             # Show Mypy error codes
-pretty = true                       # Nicer output formatting
+ignore_missing_imports = true
+disallow_untyped_defs = true # Disallow functions without type hints
+warn_unused_ignores = true # Catch useless `# type: ignore`
+warn_return_any = true # Warn if returning `Any`
+no_implicit_optional = true # Disallow Optional inference from default None
+show_error_codes = true # Show Mypy error codes
+pretty = true # Nicer output formatting
 explicit_package_bases = true
+exclude = '''(?x)(
+    ^\.venv/
+  | ^build/
+  | ^dist/
+  | ^data/
+  | ^\.vscode/
+  | ^.*__pycache__/
+  | ^.*\.pyc$
+  | ^.*\.pyo$
+  | ^.*\.pyd$
+  | ^.*\.so$
+  | ^.*\.dll$
+  | ^.*\.toml$
+  | ^\.env$
+  | ^README\.md$
+  | ^LICENSE$
+  | ^requirements(\-dev)?\.txt$
+  | ^\.pre\-commit\-config\.yaml$
+)'''
 
 [tool.black] # Black configuration for code formatting
 line-length = 79
 target-version = ['py312']
 quiet = true
+exclude = '''
+/(
+    \.venv
+  | build
+  | dist
+  | \.vscode
+  | __pycache__
+  | \.mypy_cache
+  | \.pytest_cache
+  | \.ruff_cache
+  | data
+  | \.env
+  | README\.md
+  | LICENSE
+  | requirements(\-dev)?\.txt
+  | \.pre\-commit\-config\.yaml
+)/
+'''
+include = '''
+^src/
+^tests/
+'''
 
 [tool.isort] # isort configuration for import sorting
+src_paths = ["src", "tests"]
 profile = "black"
 line_length = 79
+skip = [
+    ".venv",
+    "build",
+    "dist",
+    ".vscode",
+    "data",
+    "__pycache__",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".env",
+    "README.md",
+    "LICENSE",
+    "requirements.txt",
+    "requirements-dev.txt",
+    ".pre-commit-config.yaml",
+]
 
 [tool.ruff] # Ruff configuration for linting and formatting
 line-length = 79
 fix = true
 target-version = "py312"
+src = ["src", "tests"]
 [tool.ruff.lint]
 select = ["E", "W", "F", "B", "C90", "I", "UP", "N", "S"]
 ignore = ["E203", "B008", "B006"]
-exclude = ["test/", ".venv", "__pycache__", ".mypy_cache", ".pytest_cache", "build", "dist", "pyproject.toml", ".gitignore", "README.md", "requirements.txt", "LICENSE", ".vscode/*", ".ruff_cache", "pyproject.toml"]
+exclude = [
+    ".venv",
+    ".vscode",
+    "build",
+    "dist",
+    "data",
+    "tests",
+    "pyproject.toml",
+    "__pycache__",
+    ".ruff_cache",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".env",
+    "README.md",
+    "LICENSE",
+    "requirements.txt",
+    "requirements-dev.txt",
+    ".pre-commit-config.yaml",
+]
 [tool.ruff.lint.per-file-ignores]
-"test/*.py" = ["S101"]
+"tests/*.py" = ["S101"]
 
 [tool.bandit] # Bandit configuration for security checks
 targets = ["src/"]
-exclude_dirs = ["test/"]
+exclude_dirs = [
+    ".venv/",
+    ".vscode/",
+    "build/",
+    "dist/",
+    "tests/",
+    ".mypy_cache/",
+    ".pytest_cache/",
+    ".ruff_cache/",
+    "__pycache__/",
+    ".env",
+    "README.md",
+    "LICENSE",
+    "requirements.txt",
+    "requirements-dev.txt",
+    ".pre-commit-config.yaml",
+]
 recursive = true
