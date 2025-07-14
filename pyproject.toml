@@ -41,6 +41,7 @@ exclude = '''(?x)(
   | ^.*\.json$
   | ^.*\.yaml$
   | ^.*\.toml$
+  | ^\.coverage$
   | ^\.env$
   | ^\.gitignore$
   | ^\.pre\-commit\-config\.yaml$
@@ -65,6 +66,7 @@ exclude = '''
   | \.mypy_cache
   | \.pytest_cache
   | \.ruff_cache
+  | \.coverage
   | \.env
   | \.gitignore
   | \.pre\-commit\-config\.yaml
@@ -80,7 +82,7 @@ include = '''
 '''
 
 [tool.isort] # isort configuration for import sorting
-src_paths = ["src"]
+src_paths = ["src", "tests"]
 profile = "black"
 line_length = 79
 skip = [
@@ -93,7 +95,6 @@ skip = [
     ".mypy_cache",
     ".pytest_cache",
     ".ruff_cache",
-    "tests",
     ".coverage",
     ".env",
     ".gitignore",
@@ -125,6 +126,7 @@ exclude = [
     ".ruff_cache",
     ".mypy_cache",
     ".pytest_cache",
+    ".coverage",
     ".env",
     ".gitignore",
     ".pre-commit-config.yaml",
@@ -151,6 +153,7 @@ exclude_dirs = [
     ".mypy_cache/",
     ".pytest_cache/",
     ".ruff_cache/",
+    ".coverage",
     ".env",
     ".gitignore",
     ".pre-commit-config.yaml",
