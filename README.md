@@ -3,7 +3,7 @@
 
 
 <img src="./data/img/logo_transparent.png" width="150" />
-JustPingIt is a Python-based network utility to ping hosts and log responses over time. 
+JustPingIt is a Python-based network utility to ping hosts and log responses over time.
 It provides a simple and effective GUI interface for network diagnostics and stores data in a local SQLite database.
 
 ---
@@ -56,28 +56,28 @@ JustPingIt/
 │   └── JustPingIt/
 │       ├── __init__.py
 │       ├── __main__.py
-│       ├── main.py                 # Entry point of the application
-│       ├── model/                  # Business logic and pinging functions
+│       ├── main.py                     # Entry point of the application
+│       ├── model/                      # Business logic and pinging functions
 │       │   ├── ping.py
 │       │   ├── pinger.py
 │       │   ├── path.py
 │       │   └── database_logger.py
-│       └── view/                   # GUI logic
+│       └── view/                       # GUI logic
 │           └── view.py
 │
 ├── tests/
 │       ├── __init__.py
 │       ├── test_database_logger.py
 │       ├── test_main.py
-│       ├── test_path   
+│       ├── test_path
 │       ├── test_ping.py
 │       ├── test_pinger.py
 │       └── test_view.py
-│ 
+│
 ├── .gitignore
-├── requirements.txt                # Project dependencies
-├── requirements-dev.txt            # Project dependencies for dev
-├── pyproject.toml                  # Project info and tools configuration
+├── requirements.txt                    # Project dependencies
+├── requirements-dev.txt                # Project dependencies for dev
+├── pyproject.toml                      # Project info and tools configuration
 ├── README.md
 └── LICENSE
 ```

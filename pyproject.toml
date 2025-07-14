@@ -80,7 +80,7 @@ include = '''
 '''
 
 [tool.isort] # isort configuration for import sorting
-src_paths = ["src", "tests"]
+src_paths = ["src"]
 profile = "black"
 line_length = 79
 skip = [
@@ -93,6 +93,8 @@ skip = [
     ".mypy_cache",
     ".pytest_cache",
     ".ruff_cache",
+    "tests",
+    ".coverage",
     ".env",
     ".gitignore",
     ".pre-commit-config.yaml",
@@ -134,7 +136,8 @@ exclude = [
 
 ]
 [tool.ruff.lint.per-file-ignores]
-"tests/*.py" = ["S101"]
+"tests/*.py" = ["S101", "F841", "N806"]
+
 
 [tool.bandit] # Bandit configuration for security checks
 targets = ["src/"]
@@ -159,3 +162,11 @@ exclude_dirs = [
 
 ]
 recursive = true
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra -q --cov=JustPingIt --cov-report=term-missing"
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
