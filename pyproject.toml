@@ -165,7 +165,7 @@ exclude_dirs = [
 recursive = true
 
 [tool.pytest.ini_options]
-minversion = "8.0"
+minversion = "8.4"
 addopts = "-ra -q --cov=JustPingIt --cov-report=term-missing"
 testpaths = ["tests"]
 python_files = ["test_*.py", "*_test.py"]
