@@ -3,11 +3,9 @@ name = "JustPingIt"
 description = "Network host pinger with a simple CLI interface"
 version = "1.0.0"
 readme = "README.md"
-authors = [
-    { name = "Francesco Brunetti", email = "francesco.brunetti@gmail.com" },
-]
+authors = [{ name = "Francesco Brunetti", email = "gestione.franci@gmail.com" }]
 maintainers = [
-    { name = "Francesco Brunetti", email = "francesco.brunetti@gmail.com" },
+    { name = "Francesco Brunetti", email = "gestione.franci@gmail.com" },
 ]
 license = "MIT"
 
