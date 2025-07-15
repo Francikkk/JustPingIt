@@ -208,3 +208,9 @@ testpaths = ["tests"]
 python_files = ["test_*.py", "*_test.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
+
+[tool.coverage.run]
+branch = true
+source = ["JustPingIt"]
+[tool.coverage.report]
+omit = ["tests/*", "*/__init__.py", "*/__main__.py"]

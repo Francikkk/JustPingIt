@@ -31,8 +31,8 @@ def main_ui(
     qtbot: QtBot, tray_icon: MagicMock, mock_paths: MagicMock
 ) -> MainUI:
     with (
-        patch("src.JustPingIt.model.DatabaseLogger") as MockLogger,
-        patch("src.JustPingIt.view.view.LogViewer") as MockLogViewer,
+        patch("JustPingIt.model.DatabaseLogger") as MockLogger,
+        patch("JustPingIt.view.view.LogViewer") as MockLogViewer,
     ):
 
         MockLogger.return_value = MagicMock()
@@ -73,7 +73,7 @@ def test_load_and_save_settings(main_ui: MainUI) -> None:
     assert cast(int, settings.value("frequency")) == 5
 
 
-@patch("src.JustPingIt.view.view.Pinger")
+@patch("JustPingIt.view.view.Pinger")
 def test_start_pinging(mock_pinger_class: MagicMock, main_ui: MainUI) -> None:
     mock_pinger = MagicMock()
     mock_pinger_class.return_value = mock_pinger
@@ -89,7 +89,7 @@ def test_start_pinging(mock_pinger_class: MagicMock, main_ui: MainUI) -> None:
     mock_pinger.start.assert_called_once()
 
 
-@patch("src.JustPingIt.view.view.Pinger")
+@patch("JustPingIt.view.view.Pinger")
 def test_start_pinging_without_ip(
     mock_pinger_class: MagicMock, main_ui: MainUI
 ) -> None:
@@ -101,7 +101,7 @@ def test_start_pinging_without_ip(
     mock_pinger_class.assert_not_called()
 
 
-@patch("src.JustPingIt.view.view.Pinger")
+@patch("JustPingIt.view.view.Pinger")
 def test_stop_pinging(mock_pinger_class: MagicMock, main_ui: MainUI) -> None:
     mock_pinger = MagicMock()
     mock_pinger_class.return_value = mock_pinger
